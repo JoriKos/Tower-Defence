@@ -6,11 +6,10 @@ public class Nodes : MonoBehaviour
 {
     [SerializeField] private int _nodeCount;
     [SerializeField] private List<GameObject> _nodes = new();
-    public List<GameObject> NodeList { get; private set; }
+    public List<GameObject> NodeList { get { return _nodes; } }
 
     private void Awake()
     {
-
         for (int i = 0; i < _nodeCount; i++)
         {
             GameObject node = GameObject.Find("Node " + i);
