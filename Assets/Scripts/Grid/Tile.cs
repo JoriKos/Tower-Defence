@@ -37,6 +37,8 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
+        // If a tower is selected and mouse is not hovering over a UI element
+        // May have to add these to other OnMouse functions too
         if (_towerManager.CurrentTower && EventSystem.current.IsPointerOverGameObject() == false)
             Instantiate(_towerManager.CurrentTower, _attachPoint.position, Quaternion.identity);
         else
