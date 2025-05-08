@@ -8,6 +8,7 @@ public class Tile : MonoBehaviour
     [SerializeField] private GridManager _gridManager;
     [SerializeField] private TowerManager _towerManager;
     [SerializeField] private Transform _attachPoint;
+    [SerializeField] private GameObject _currentTower;
     bool _isOffSet;
 
     private void Awake()
@@ -40,7 +41,7 @@ public class Tile : MonoBehaviour
         // If a tower is selected and mouse is not hovering over a UI element
         // May have to add these to other OnMouse functions too
         if (_towerManager.CurrentTower && EventSystem.current.IsPointerOverGameObject() == false)
-            Instantiate(_towerManager.CurrentTower, _attachPoint.position, Quaternion.identity);
+            _currentTower = Instantiate(_towerManager.CurrentTower, _attachPoint.position, Quaternion.identity);
         else
             return;
     }
