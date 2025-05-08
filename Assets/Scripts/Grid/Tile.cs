@@ -6,6 +6,7 @@ public class Tile : MonoBehaviour
     [SerializeField] private MeshRenderer _renderer;
     [SerializeField] private GridManager _gridManager;
     [SerializeField] private TowerManager _towerManager;
+    [SerializeField] private Transform _attachPoint;
     bool _isOffSet;
 
     private void Awake()
@@ -35,14 +36,8 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //Fix this please
         if (_towerManager.CurrentTower)
-        {
-            if (_towerManager.CurrentTower.name == "Tower1" || _towerManager.CurrentTower.name == "Tower2")
-                Instantiate(_towerManager.CurrentTower, new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z), Quaternion.identity);
-            else if (_towerManager.CurrentTower.name == "Tower3" || _towerManager.CurrentTower.name == "Tower4")
-                Instantiate(_towerManager.CurrentTower, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity);
-        }
+            Instantiate(_towerManager.CurrentTower, _attachPoint.position, Quaternion.identity);
         else
             return;
     }

@@ -33,7 +33,8 @@ Transform:
   m_LocalPosition: {x: -8.581446, y: 5.816037, z: 7.710126}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 28076412315428536}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4718319573169765205
@@ -105,6 +106,9 @@ MonoBehaviour:
   _offsetColour: {r: 0.30919084, g: 0.8207547, b: 0.22841759, a: 1}
   _overrideColour: {r: 0, g: 0, b: 0, a: 0}
   _renderer: {fileID: 9046268391886337394}
+  _gridManager: {fileID: 0}
+  _towerManager: {fileID: 0}
+  _attachPoint: {fileID: 28076412315428536}
 --- !u!65 &3156228126023650075
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -153,3 +157,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &5956337332572171844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 28076412315428536}
+  m_Layer: 0
+  m_Name: AttachPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &28076412315428536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5956337332572171844}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1925585631003055004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
