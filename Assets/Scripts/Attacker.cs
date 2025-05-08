@@ -22,7 +22,10 @@ public class Attacker : MonoBehaviour
 
         if (transform.position == _nextNode.transform.position)
         {
-            _nextNode = _nodes.NodeList[_nodes.NodeList.IndexOf(_nextNode) + 1];
+            Debug.Log(_nodes.NodeList.IndexOf(_nextNode));
+            Debug.Log(_nodes.NodeList.Count);
+
+            _nextNode = (_nodes.NodeList.IndexOf(_nextNode) != _nodes.NodeList.Count - 1) ? _nodes.NodeList[_nodes.NodeList.IndexOf(_nextNode) + 1] : _nodes.NodeList[_nodes.NodeList.IndexOf(_nextNode)];
         }
     }
 }

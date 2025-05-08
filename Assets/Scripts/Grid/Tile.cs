@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Tile : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (_towerManager.CurrentTower)
+        if (_towerManager.CurrentTower && EventSystem.current.IsPointerOverGameObject() == false)
             Instantiate(_towerManager.CurrentTower, _attachPoint.position, Quaternion.identity);
         else
             return;
