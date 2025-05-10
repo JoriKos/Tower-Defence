@@ -9,12 +9,15 @@ public class Tile : MonoBehaviour
     [SerializeField] private TowerManager _towerManager;
     [SerializeField] private Transform _attachPoint;
     [SerializeField] private GameObject _currentTower;
+    [SerializeField] private Economy _econ;
+    [SerializeField] private bool _canPlaceOn;
     bool _isOffSet;
 
     private void Awake()
     {
         _gridManager = GameObject.Find("GridManager").GetComponent<GridManager>();
         _towerManager = GameObject.Find("TowerManager").GetComponent<TowerManager>();
+        _econ = GameObject.Find("GameManager").GetComponent<Economy>();
     }
 
     public void SetColour(bool isOffSet)
@@ -36,13 +39,21 @@ public class Tile : MonoBehaviour
         _renderer.material.color = _isOffSet ? _offsetColour : _baseColour;
     }
 
-    private void OnMouseDown()
-    {
-        // If a tower is selected and mouse is not hovering over a UI element
-        // May have to add these to other OnMouse functions too
-        if (_towerManager.CurrentTower && EventSystem.current.IsPointerOverGameObject() == false)
-            _currentTower = Instantiate(_towerManager.CurrentTower, _attachPoint.position, Quaternion.identity);
-        else
-            return;
+    private void OnMouseDown() 
+    { 
+        // Left click -> place currently selected tower
+        
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (_towerManager.CurrentTower && !_currentTower && EventSystem.current.IsPointerOverGameObject() == false &&
+                _econ.GetMoney() >= _econ.TowerCost[_towerManager.CurrentTower.name])
+            {
+                _currentTower = Instantiate(_towerManager.CurrentTower, _attachPoint.position, Quaternion.identity);
+                _currentTower.name = _towerManager.CurrentTower.name;
+                _econ.AddMoney(-_currentTower.GetComponent<TowerBase>().Value);
+            }
+            else //Replace with error of some kind
+                return;
+        }
     }
 }

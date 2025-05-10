@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Attacker : MonoBehaviour
 {
-    [SerializeField] private float _health, _speed;
+    [SerializeField] private float _health, _speed, _value;
+
+    //No set, any modifiers must be applied in the calculation
+    public float Value { get { return _value; } }
     [SerializeField] private Nodes _nodes;
     private GameObject _nextNode;
 
