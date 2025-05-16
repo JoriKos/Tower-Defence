@@ -17,7 +17,16 @@ public class ProjectileBase : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, _speed * Time.deltaTime);
+        if (_target)
+        {
+            if (_target.activeInHierarchy)
+                transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, _speed * Time.deltaTime);
+            else
+                _pool.ReturnObject(gameObject);
+        }
+        else
+            _pool.ReturnObject(gameObject);
+
         //transform.position += -transform.forward * Time.deltaTime * _speed;
     }
 

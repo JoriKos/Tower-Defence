@@ -47,7 +47,9 @@ public class TowerFollow : MonoBehaviour
             {
                 //Set closest distance to distance between the 
                 closestDist = Vector3.Distance(transform.position, item.transform.position);
-                target = item;
+                
+                if (item.activeInHierarchy)
+                    target = item;
             }
         }
 
