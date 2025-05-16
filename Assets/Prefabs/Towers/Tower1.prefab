@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 9214633614288896669}
   - component: {fileID: 6870473483009990364}
   - component: {fileID: -6289797282690633739}
-  - component: {fileID: 4253377757151920527}
-  m_Layer: 0
+  - component: {fileID: 6995846327047301292}
+  m_Layer: 2
   m_Name: Tower1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
   _bFire: {fileID: 2541269656588112240}
+  _searchRadius: 0
 --- !u!114 &-6289797282690633739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,8 +64,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _value: 5
   _econ: {fileID: 0}
---- !u!65 &4253377757151920527
-BoxCollider:
+--- !u!135 &6995846327047301292
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -78,12 +79,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1850544007914142402
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +97,7 @@ GameObject:
   - component: {fileID: 1974310023221883909}
   - component: {fileID: 4250456385901979262}
   - component: {fileID: 2541269656588112240}
+  - component: {fileID: 2401264640937690040}
   m_Layer: 0
   m_Name: ModelTower
   m_TagString: Untagged
@@ -187,6 +189,27 @@ MonoBehaviour:
   _projectileOrigin: {fileID: 2363815083696497636}
   _fireRate: 2
   _poolName: HandCannon Pool
+--- !u!65 &2401264640937690040
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850544007914142402}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7435674253255411960
 GameObject:
   m_ObjectHideFlags: 0
