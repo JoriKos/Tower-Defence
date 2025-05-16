@@ -7,7 +7,6 @@ public class ObjectPooling : MonoBehaviour
 {
     [SerializeField] private GameObject _objectPool;
     [SerializeField] private Queue<GameObject> _objectPooler = new();
-    public Queue<GameObject> ObjectPooler { get { return _objectPooler; } }
     [SerializeField] private int _poolStartSize;
     [SerializeField] private bool _activeOnStart = false;
     public int PoolStartSize { get { return _poolStartSize; } }
@@ -25,28 +24,28 @@ public class ObjectPooling : MonoBehaviour
     }
 
     // Enable object. If no object is available, spawn a new one
-    public GameObject GetObstacle(bool setActiveImmediately = true)
+    public GameObject GetObject(bool setActiveImmediately = true)
     {
         if (_objectPooler.Count > 0)
         {
-            GameObject obstacle = _objectPooler.Dequeue();
-            obstacle.SetActive(setActiveImmediately);
-            return obstacle;
+            GameObject tObject = _objectPooler.Dequeue();
+            tObject.SetActive(setActiveImmediately);
+            return tObject;
         }
         else
         {
-            GameObject obstacle = Instantiate(_objectPool);
-            obstacle.transform.parent = transform;
-            _objectPooler.Enqueue(obstacle);
-            obstacle.SetActive(setActiveImmediately);
-            return obstacle;
+            GameObject tObject = Instantiate(_objectPool);
+            tObject.transform.parent = transform;
+            _objectPooler.Enqueue(tObject);
+            tObject.SetActive(setActiveImmediately);
+            return tObject;
         }
     }
 
-    //Zet object terug in de queue
-    public void ReturnObstacle(GameObject collison)
+    //Put back into queue
+    public void ReturnObject(GameObject tObject)
     {
-        _objectPooler.Enqueue(collison);
-        collison.SetActive(false);
+        _objectPooler.Enqueue(tObject);
+        tObject.SetActive(false);
     }
 }

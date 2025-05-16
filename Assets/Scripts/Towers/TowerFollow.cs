@@ -1,22 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class TowerFollow : MonoBehaviour
 {
-    [SerializeField] private GameObject _target;
     [SerializeField] private FiringTowerBase _bFire;
-    [SerializeField] private float _searchRadius;
     private List<GameObject> _targetsInRange = new();
+    [SerializeField] private GameObject _target;
 
-    private void Awake()
-    {
-        _searchRadius = GetComponent<SphereCollider>().radius;
-    }
+    public GameObject Target { get { return _target; } }
 
     void Update()
     {
-        //Find target
+        //Find closest target
         _target = FindTarget();
 
         if (_target)

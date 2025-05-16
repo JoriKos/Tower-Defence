@@ -135,6 +135,7 @@ MonoBehaviour:
   _projectileOrigin: {fileID: 8544628688371369253}
   _fireRate: 2
   _poolName: Artillery Pool
+  _tFollow: {fileID: 2786992417180700629}
 --- !u!135 &2951022340948106262
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -203,9 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 677616be4619b7c4581b72a57620a4c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
   _bFire: {fileID: 8147191151026632890}
-  _searchRadius: 0
 --- !u!114 &9052390704917992428
 MonoBehaviour:
   m_ObjectHideFlags: 0

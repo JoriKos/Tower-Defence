@@ -45,9 +45,11 @@ public class Tile : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0))
         {
+            //If a tower is selected, no tower has been placed, not hovering over a gameobject, and we have the money
             if (_towerManager.CurrentTower && !_currentTower && EventSystem.current.IsPointerOverGameObject() == false &&
                 _econ.GetMoney() >= _econ.TowerCost[_towerManager.CurrentTower.name])
             {
+                //Place tower and subtract money
                 _currentTower = Instantiate(_towerManager.CurrentTower, _attachPoint.position, Quaternion.identity);
                 _currentTower.name = _towerManager.CurrentTower.name;
                 _econ.AddMoney(-_currentTower.GetComponent<TowerBase>().Value);
